@@ -8,5 +8,5 @@
 * My account
 * My jobs 
 * Job search 
-~~ Login page ~~ 
-~~ Create an account ~~ 
+~~Login page~~
+~~Create an account~~
