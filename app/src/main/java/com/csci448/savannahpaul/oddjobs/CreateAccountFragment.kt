@@ -29,6 +29,11 @@ class CreateAccountFragment: Fragment() {
             val intent = LoginActivity.createIntent(context)
             startActivity(intent)
         }
+
+        create_account_button.setOnClickListener{
+            val intent = NavBarActivity.createIntent(context)
+            startActivity(intent)
+        }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
