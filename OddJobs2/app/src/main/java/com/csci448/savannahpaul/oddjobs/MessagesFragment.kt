@@ -7,16 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import kotlinx.android.synthetic.main.job_view_layout.*
+import kotlinx.android.synthetic.main.messages_layout.*
 
-class JobViewFragment: Fragment() {
+class MessagesFragment: Fragment() {
     companion object {
-        private val LOG_TAG = "448.JobViewFrag"
-
+        private val LOG_TAG = "448.MessagesFrag"
 
         fun createFragment(): Fragment {
-            var jobviewFrag = JobViewFragment()
-            return jobviewFrag
+            var messFrag = MessagesFragment()
+            return messFrag
         }
     }
 
@@ -25,14 +24,8 @@ class JobViewFragment: Fragment() {
         Log.d(LOG_TAG, "onViewCreated() called")
 
         //Button click listeners here
-        request_button.setOnClickListener{
-            Toast.makeText(context, "Request to poster will be sent", Toast.LENGTH_LONG).show()
-        }
-
-        message_button.setOnClickListener{
-            //messages activity
-            val intent = MessagesActivity.createIntent(context)
-            startActivity(intent)
+        send_button.setOnClickListener{
+            Toast.makeText(context, "Message will be sent and displayed!", Toast.LENGTH_LONG).show()
         }
     }
 
@@ -48,7 +41,7 @@ class JobViewFragment: Fragment() {
             Log.d(LOG_TAG, "savedInstanceState is not null")
 
         }
-        return inflater.inflate(R.layout.job_view_layout, container, false)
+        return inflater.inflate(R.layout.messages_layout, container, false)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -80,4 +73,5 @@ class JobViewFragment: Fragment() {
         Log.d(LOG_TAG, "onDestroy() called")
         super.onDestroy()
     }
+
 }

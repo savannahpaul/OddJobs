@@ -8,6 +8,7 @@ import android.support.design.widget.NavigationView
 import android.support.v4.app.Fragment
 import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
+import android.support.v7.app.ActionBar
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
@@ -36,7 +37,7 @@ class NavBarActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelect
             R.id.nav_account -> fragment = MyAccountFragment()
             R.id.nav_job_search -> fragment = JobListFragment()
             R.id.nav_my_jobs -> fragment = MyJobsFragment()
-            //R.id.nav_submit_job -> fragment = SubmitJobFragment()
+            R.id.nav_submit_job -> fragment = SubmitJobFragment()
         }
 
         //replacing the fragment
@@ -62,6 +63,10 @@ class NavBarActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelect
         toggle.syncState()
 
         nav_view.setNavigationItemSelectedListener(this)
+
+        supportActionBar?.setDisplayShowHomeEnabled(true);
+        supportActionBar?.setLogo(R.drawable.thumbnail);
+        supportActionBar?.setDisplayUseLogoEnabled(true);
 
         displaySelectedScreen(R.id.nav_account);
     }

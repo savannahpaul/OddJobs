@@ -1,15 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
+                android:layout_height="match_parent"
+                android:layout_margin="10dp">
     <TextView
+            android:id="@+id/name_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="My Account"
-            android:id="@+id/textView"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
+            android:textSize="25dp"
+            android:text="Your Name"
+    />
+    <ImageView
+            android:id="@+id/user_image_view"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginLeft="100dp"
+            android:layout_below="@+id/name_text_view"
+            android:src="@drawable/mysteryman"
+    />
+    <TextView
+            android:id="@+id/bio_text_view"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/user_image_view"
+            android:textSize="20dp"
+            android:text="Bio:"
+    />
+    <TextView
+            android:id="@+id/acc_info_text_view"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/bio_text_view"
+            android:textSize="20dp"
+            android:text="Account Information:"
+    />
+    <TextView
+            android:id="@+id/review_text_view"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/acc_info_text_view"
+            android:textSize="20dp"
+            android:text="Reviews"
+    />
 
+    <TextView
+            android:id="@+id/history_text_view"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/review_text_view"
+            android:textSize="20dp"
+            android:text="Balance and Job History"
+    />
 </RelativeLayout>

@@ -21,7 +21,7 @@
         <activity android:name=".NavBarActivity">
         </activity>
         <activity android:name=".JobViewActivity"></activity>
-
+        <activity android:name=".MessagesActivity"></activity>
     </application>
 
 </manifest>
