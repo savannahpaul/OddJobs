@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:orientation="vertical">
+    <ImageView
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="50dp"
+            android:layout_gravity="center"
+            android:src="@drawable/oddjobslogo"/>
+    <TextView
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp"
+            android:text="Create an Account"
+            android:textSize="24sp"/>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+        <TextView
+                android:layout_height="match_parent"
+                android:layout_width="150dp"
+                android:text="First Name:"
+                android:textSize="24sp"/>
+
+        <EditText
+                android:id="@+id/first_name_edit_text"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"/>
+    </LinearLayout>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+        <TextView
+                android:layout_height="match_parent"
+                android:layout_width="150dp"
+                android:text="Last Name:"
+                android:textSize="24sp"/>
+
+        <EditText
+                android:id="@+id/last_name_edit_text"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"/>
+    </LinearLayout>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+        <TextView
+                android:layout_height="match_parent"
+                android:layout_width="150dp"
+                android:text="Email:"
+                android:textSize="24sp"/>
+
+        <EditText
+                android:id="@+id/email_exit_text"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"/>
+    </LinearLayout>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+        <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="150dp"
+                android:text="Confirm Email:"
+                android:textSize="24sp"/>
+
+        <EditText
+                android:id="@+id/confirm_email_edit_text"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"/>
+    </LinearLayout>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+        <TextView
+                android:layout_height="match_parent"
+                android:layout_width="150dp"
+                android:text="Username:"
+                android:textSize="24sp"/>
+
+        <EditText
+                android:id="@+id/username_edit_text"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"/>
+    </LinearLayout>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+        <TextView
+                android:layout_height="match_parent"
+                android:layout_width="150dp"
+                android:text="Password:"
+                android:textSize="24sp"/>
+
+        <EditText
+                android:id="@+id/password_edit_text"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"/>
+    </LinearLayout>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+        <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="150dp"
+                android:text="Confirm Password:"
+                android:textSize="24sp"/>
+
+        <EditText
+                android:id="@+id/confirm_password_edit_text"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"/>
+    </LinearLayout>
+    <Button
+            android:id="@+id/create_account_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Create Account"
+            android:textSize="24sp"/>
+    <Button
+            android:id="@+id/back_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Back"
+            android:textSize="24sp"/>
+</LinearLayout>
+
