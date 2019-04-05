@@ -7,10 +7,11 @@ import android.support.v4.app.Fragment
 class JobViewActivity: SingleFragmentActivity() {
 
     companion object {
+        private lateinit var job: Job
         private val LOG_TAG = "448.JobViewAct"
-
-        fun createIntent(context: Context?): Intent {
+        fun createIntent(context: Context?, j: Job): Intent {
             val intent = Intent(context, JobViewActivity::class.java)
+            job = j
             return intent
         }
     }
@@ -18,6 +19,6 @@ class JobViewActivity: SingleFragmentActivity() {
     override fun getLogTag()= LOG_TAG
 
     override fun createFragment(): Fragment {
-        return JobViewFragment.createFragment()
+        return JobViewFragment.createFragment(job)
     }
 }

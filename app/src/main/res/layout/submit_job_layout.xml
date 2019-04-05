@@ -22,7 +22,7 @@
 
 
         <EditText
-                android:id="@+id/create_tiltle"
+                android:id="@+id/create_title"
                 android:layout_height="wrap_content"
                 android:layout_width="0px"
                 android:layout_weight="2"

@@ -5,9 +5,7 @@ import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import kotlinx.android.synthetic.main.fragment_list.*
 import kotlinx.android.synthetic.main.list_item_job.view.*
 import kotlinx.android.synthetic.main.list_item_job.view.*
@@ -15,7 +13,9 @@ import kotlinx.android.synthetic.main.activity_login.*
 
 class JobListFragment: Fragment() {
     private	lateinit var adapter: JobListAdapter
-
+    interface Callbacks {
+        fun onJobSelected(job: Job, position: Int)
+    }
     companion object {
         private val LOG_TAG = "448.JobListFrag"
 
@@ -27,27 +27,28 @@ class JobListFragment: Fragment() {
     }
 
     class JobHolder(val fragment: JobListFragment, val view: View): RecyclerView.ViewHolder(view) {
-        fun bind() {
-            view.list_item_job_title_text_view.text = "Example Job"
-            view.list_item_job_description_text_view.text = "Example Description"
-            view.list_item_job_price_text_view.text = "$20.00"
-            view.list_item_job_distance_text_view.text = "5.1 mi"
+        fun bind(job: Job, pos: Int) {
+            view.list_item_job_title_text_view.text = job.title
+            view.list_item_job_description_text_view.text = job.description
+            var price = "$" + job.price.toString()
+            view.list_item_job_price_text_view.text = price
+            view.list_item_job_distance_text_view.text = job.distance.toString()
 
             view.setOnClickListener {
                 //val intent = JobViewActivity.createIntent(fragment.activity, pos)
                 //fragment.startActivityForResult(intent, fragment.targetRequestCode)
                 //fragment.callbacks?.onCrimeSelected(crime, position)
-                val intent = JobViewActivity.createIntent(fragment.activity)
+                val intent = JobViewActivity.createIntent(fragment.activity, job)
                 fragment.startActivity(intent)
             }
         }
     }
 
 
-    private class JobListAdapter(val fragment: JobListFragment) : RecyclerView.Adapter<JobHolder>() {
+    private class JobListAdapter(val fragment: JobListFragment, val jobs: List<Job>) : RecyclerView.Adapter<JobHolder>() {
 
         override fun getItemCount(): Int{
-            return 1
+            return jobs.size
         }
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): JobHolder {
             val layoutInflater = LayoutInflater.from(fragment.context)
@@ -55,7 +56,7 @@ class JobListFragment: Fragment() {
             return JobHolder(fragment, view)
         }
         override fun onBindViewHolder(holder: JobHolder, position: Int){
-            holder.bind()
+            holder.bind(jobs[position], position)
         }
     }
 
@@ -72,7 +73,7 @@ class JobListFragment: Fragment() {
     }
 
     private fun updateUI() {
-        adapter = JobListAdapter(this)
+        adapter = JobListAdapter(this, JobLab.getJobs())
         job_list_recycler_view.adapter = adapter
     }
 
@@ -90,6 +91,8 @@ class JobListFragment: Fragment() {
         }
         return inflater.inflate(R.layout.fragment_list, container, false)
     }
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

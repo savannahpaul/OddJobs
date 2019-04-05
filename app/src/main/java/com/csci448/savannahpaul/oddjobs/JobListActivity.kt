@@ -5,8 +5,18 @@ import android.content.Intent
 import android.content.res.Configuration
 import android.support.v4.app.Fragment
 import android.util.Log
+import android.widget.FrameLayout
 
-class JobListActivity: SingleFragmentActivity() {
+class JobListActivity: SingleFragmentActivity(),
+    JobListFragment.Callbacks, JobViewFragment.Callbacks{
+
+    override fun onJobSelected(job: Job, position: Int) {
+
+    }
+    override fun onJobUpdated() {
+
+    }
+
     companion object {
         private val LOG_TAG = "448.JobListAct"
 

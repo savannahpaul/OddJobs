@@ -10,12 +10,16 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.job_view_layout.*
 
 class JobViewFragment: Fragment() {
+    interface Callbacks {
+        fun onJobUpdated()
+    }
     companion object {
         private val LOG_TAG = "448.JobViewFrag"
+        private lateinit var job: Job
 
-
-        fun createFragment(): Fragment {
+        fun createFragment(j: Job): Fragment {
             var jobviewFrag = JobViewFragment()
+            job = j
             return jobviewFrag
         }
     }
@@ -23,6 +27,12 @@ class JobViewFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Log.d(LOG_TAG, "onViewCreated() called")
+
+        //Set Job Information in View
+        var price = "$" + job.price.toString()
+        job_price_text_view.text = price
+        job_title_text_view.text = job.title
+        job_description_text_view.text = job.description
 
         //Button click listeners here
         request_button.setOnClickListener{

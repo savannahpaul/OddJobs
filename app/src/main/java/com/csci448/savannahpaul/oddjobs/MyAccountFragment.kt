@@ -10,7 +10,7 @@ class MyAccountFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        return inflater.inflate(R.layout.user_account_layout, container, false)
+        return inflater.inflate(R.layout.my_account_layout, container, false)
     }
 
 
