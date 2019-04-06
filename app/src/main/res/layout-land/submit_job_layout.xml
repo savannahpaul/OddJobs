@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:orientation="vertical">
+
+    <TextView
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp"
+            android:text="@string/submit_a_job"
+            android:textSize="30sp"/>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+
+        <EditText
+                android:id="@+id/create_title"
+                android:layout_height="wrap_content"
+                android:layout_width="0px"
+                android:layout_weight="2"
+                android:hint="@string/title"
+        />
+
+        <EditText
+                android:id="@+id/create_price"
+                android:layout_height="wrap_content"
+                android:layout_width="0px"
+                android:layout_weight="1"
+                android:hint="@string/price"
+        />
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+        <EditText
+                android:id="@+id/item_description"
+                android:layout_height="200dp"
+                android:layout_width="match_parent"
+                android:gravity="top"
+                android:hint="@string/description"
+        />
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+        <Button
+            android:id="@+id/upload_photo_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/upload_photo"
+            android:textSize="24sp"/>
+        <Button
+            android:id="@+id/add_a_location_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_a_location"
+            android:textSize="24sp"/>
+        <Button
+            android:id="@+id/submit_button"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:textSize="24sp"/>
+    </LinearLayout>
+
+</LinearLayout>
