@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp">
+    <ImageView
+            android:id="@+id/image_one_view"
+            android:layout_margin="20dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/questionmark"/>
+
+    <ImageView
+            android:id="@+id/image_two_view"
+            android:layout_margin="20dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_toRightOf="@+id/image_one_view"
+            android:src="@drawable/questionmark"/>
+    <TextView
+            android:id="@+id/job_price_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/image_one_view"
+            android:textSize="25sp"
+            android:text="$.$$"/>
+    <TextView
+            android:id="@+id/job_title_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/image_one_view"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/job_price_text_view"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:text="Job Title"/>
+    <TextView
+            android:id="@+id/job_description_text_view"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/message_button"
+            android:textSize="20sp"
+            android:text="Job Description"/>
+
+    <ImageView
+            android:id="@+id/map_image_view"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/job_title_text_view"
+            android:src="@drawable/map"/>
+
+    <Button
+            android:id="@+id/request_button"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_below="@id/map_image_view"
+            android:textSize="24sp"
+            android:text="Request"/>
+
+    <Button
+            android:id="@+id/message_button"
+            android:layout_width="250dp"
+            android:layout_marginLeft="50dp"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:layout_below="@+id/request_button"
+            android:text="Message"/>
+</RelativeLayout>
