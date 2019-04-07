@@ -37,14 +37,12 @@ class LoginFragment: Fragment() {
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         Log.d(LOG_TAG, "onSaveInstanceState() called")
-
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         Log.d(LOG_TAG, "onCreateView() called")
         if( savedInstanceState != null ) {
             Log.d(LOG_TAG, "savedInstanceState is not null")
-
         }
         return inflater.inflate(R.layout.activity_login, container, false)
     }
