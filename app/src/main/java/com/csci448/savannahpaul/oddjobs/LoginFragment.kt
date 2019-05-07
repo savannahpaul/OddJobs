@@ -25,7 +25,8 @@ class LoginFragment: Fragment() {
 
         //Button click listeners here
         login_button.setOnClickListener{
-            val intent = NavBarActivity.createIntent(context)
+            var user = User()
+            val intent = NavBarActivity.createIntent(context, user, R.id.nav_account)
             startActivity(intent)
         }
         create_account_button.setOnClickListener{

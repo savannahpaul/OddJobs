@@ -125,12 +125,12 @@
                 android:layout_width="match_parent"/>
     </LinearLayout>
     <Button
-            android:id="@+id/create_account_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Create Account"
-            android:textSize="24sp"/>
+    android:id="@+id/create_account_button"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20dp"
+    android:text="Create Account"
+    android:textSize="24sp"/>
     <Button
             android:id="@+id/back_button"
             android:layout_width="match_parent"

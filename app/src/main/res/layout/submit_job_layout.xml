@@ -52,7 +52,14 @@
         />
 
     </LinearLayout>
-
+    <ImageView
+        android:id="@+id/job_image_view"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:maxWidth="100dp"
+        android:maxHeight="100dp"
+        android:layout_gravity="center"
+        android:visibility="invisible"/>
     <Button
             android:id="@+id/upload_photo_button"
             android:layout_width="250dp"
@@ -61,7 +68,6 @@
             android:layout_gravity="center"
             android:text="@string/upload_photo"
             android:textSize="24sp"/>
-
     <Button
             android:id="@+id/add_a_location_button"
             android:layout_width="250dp"

@@ -33,7 +33,7 @@ class JobListFragment: Fragment() {
             var price = "$" + job.price.toString()
             view.list_item_job_price_text_view.text = price
             view.list_item_job_distance_text_view.text = job.distance.toString()
-
+            view.job_image_view.setImageURI(job.image)
             view.setOnClickListener {
                 //val intent = JobViewActivity.createIntent(fragment.activity, pos)
                 //fragment.startActivityForResult(intent, fragment.targetRequestCode)

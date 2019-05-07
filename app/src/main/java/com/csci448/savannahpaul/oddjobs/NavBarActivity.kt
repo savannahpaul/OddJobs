@@ -11,23 +11,34 @@ import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBar
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
+import android.util.AttributeSet
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.LinearLayout
+import android.widget.TextView
 import kotlinx.android.synthetic.main.nav_bar_layout.*
+import kotlinx.android.synthetic.main.nav_header.*
+import kotlinx.android.synthetic.main.nav_header.view.*
 
 class NavBarActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     companion object {
         private val LOG_TAG = "448.JobSearchAct"
+        var user = User()
+        var startingPage: Int = 0
 
-        fun createIntent(context: Context?): Intent {
+        fun createIntent(context: Context?, u: User, itemId: Int): Intent {
+            Log.d(LOG_TAG, "createIntent() called")
+            user = u
+            startingPage = itemId
             val intent = Intent(context, NavBarActivity::class.java)
             return intent
         }
+
     }
 
-    private fun displaySelectedScreen(itemId: Int) {
+    fun displaySelectedScreen(itemId: Int) {
 
         //creating fragment object
         var fragment: Fragment? = null
@@ -52,6 +63,7 @@ class NavBarActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelect
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        Log.d(LOG_TAG, "onCreate() called")
         super.onCreate(savedInstanceState)
         setContentView(R.layout.nav_bar_layout)
         setSupportActionBar(toolbar)
@@ -68,7 +80,13 @@ class NavBarActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelect
         supportActionBar?.setLogo(R.drawable.thumbnail);
         supportActionBar?.setDisplayUseLogoEnabled(true);
 
-        displaySelectedScreen(R.id.nav_account);
+        displaySelectedScreen(startingPage);
+
+        //user_name_text_view.text = user.first_name
+        var navView = findViewById<NavigationView>(R.id.nav_view)
+        var headerView = navView.getHeaderView(0)
+        var nameView = headerView.findViewById<TextView>(R.id.user_name_text_view)
+        nameView.text = user.first_name + " " + user.last_name
     }
 
     override fun onBackPressed() {

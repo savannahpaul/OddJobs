@@ -1,6 +1,8 @@
 package com.csci448.savannahpaul.oddjobs
 
+import android.content.Intent
 import android.os.Bundle
+import android.provider.MediaStore
 import android.support.v4.app.Fragment
 import android.util.Log
 import android.view.LayoutInflater
@@ -33,7 +35,7 @@ class JobViewFragment: Fragment() {
         job_price_text_view.text = price
         job_title_text_view.text = job.title
         job_description_text_view.text = job.description
-
+        image_one_view.setImageURI(job.image)
         //Button click listeners here
         request_button.setOnClickListener{
             Toast.makeText(context, "Request to poster will be sent", Toast.LENGTH_LONG).show()
