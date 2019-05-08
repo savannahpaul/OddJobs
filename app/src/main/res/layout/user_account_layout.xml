@@ -1,25 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="15dp"
+    android:orientation="vertical">
 
     <TextView
-            android:layout_height="match_parent"
-            android:layout_width="match_parent"
-            android:gravity="center"
-            android:textStyle="bold"
-            android:layout_marginBottom="10dp"
-            android:text="User Profile"
-            android:textSize="30sp"/>
+        android:id="@+id/account_page_title"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp"
+        android:textSize="30sp"/>
     <ImageView
-            android:id="@+id/profile_image_view"
-            android:layout_width="300dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:src="@drawable/mysteryman"/>
+        android:id="@+id/profile_image_view"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:src="@drawable/mysteryman"/>
     <Button
         android:id="@+id/img_pick_btn"
         android:text="Upload Image"
@@ -29,90 +32,125 @@
         android:layout_height="wrap_content" />
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_height="match_parent"
+            android:layout_width="80dp"
+            android:layout_marginLeft="150dp"
+            android:text="Bio"
+            android:textSize="24sp"/>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
-        <TextView
-                android:layout_height="match_parent"
-                android:layout_width="150dp"
-                android:text="Bio:"
-                android:textSize="24sp"/>
+        <ViewSwitcher
+            android:id="@+id/view_switcher"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content">
 
-        <EditText
-                android:id="@+id/user_bio_edit_text"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"/>
+            <TextView
+                android:id="@+id/bio_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Tell us about yourself!"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/bio_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textAlignment="center"
+                android:textSize="12sp" />
+
+        </ViewSwitcher>
+        <Button
+            android:id="@+id/update_bio_button"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="end"
+            android:text="+"/>
+        </LinearLayout>
+
     </LinearLayout>
     <LinearLayout
-            android:layout_width="match_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
             android:layout_height="match_parent"
-            android:orientation="vertical">
-        <TextView
-                android:layout_height="match_parent"
-                android:layout_width="wrap_content"
-                android:text="Account Information"
-                android:textSize="24sp"/>
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="25dp"
+            android:text="Account Information"
+            android:textSize="24sp"/>
 
         <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-            <TextView
-                    android:layout_height="match_parent"
-                    android:layout_width="150dp"
-                    android:text="Email:"
-                    android:textSize="18sp"/>
-
-            <TextView
-                    android:id="@+id/user_email_text_view"
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent"/>
-        </LinearLayout>
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="25dp"
-                android:orientation="horizontal">
-            <TextView
-                    android:layout_height="match_parent"
-                    android:layout_width="150dp"
-                    android:text="Username:"
-                    android:textSize="18sp"/>
-
-            <TextView
-                    android:id="@+id/user_username_text_view"
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent"/>
-        </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
-        <TextView
+            <TextView
                 android:layout_height="match_parent"
                 android:layout_width="150dp"
-                android:text="Reviews:"
-                android:textSize="24sp"/>
+                android:text="Email:"
+                android:textSize="18sp"/>
 
-        <TextView
-                android:id="@+id/user_reviews_textview"
+            <TextView
+                android:id="@+id/user_email_text_view"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"/>
-    </LinearLayout>
-    <LinearLayout
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="25dp"
             android:orientation="horizontal">
-        <TextView
+            <TextView
+                android:layout_height="match_parent"
+                android:layout_width="150dp"
+                android:text="Username:"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/user_username_text_view"
                 android:layout_height="wrap_content"
+                android:layout_width="match_parent"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_height="match_parent"
                 android:layout_width="150dp"
                 android:text="Balance:"
-                android:textSize="24sp"/>
+                android:textSize="18sp"/>
 
-        <TextView
+            <TextView
                 android:id="@+id/user_balance_textview"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"/>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_height="match_parent"
+            android:layout_width="150dp"
+            android:layout_marginLeft="130dp"
+            android:layout_marginTop="25dp"
+            android:text="Reviews:"
+            android:textSize="24sp"/>
+
+        <TextView
+            android:id="@+id/user_reviews_textview"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="No reviews to display."/>
     </LinearLayout>
 
+
 </LinearLayout>
+</ScrollView>

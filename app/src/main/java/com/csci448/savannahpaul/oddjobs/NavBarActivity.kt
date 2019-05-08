@@ -27,6 +27,7 @@ class NavBarActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelect
         private val LOG_TAG = "448.JobSearchAct"
         var user = User()
         var startingPage: Int = 0
+        var pageNum: Int = 0
 
         fun createIntent(context: Context?, u: User, itemId: Int): Intent {
             Log.d(LOG_TAG, "createIntent() called")
@@ -39,7 +40,7 @@ class NavBarActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelect
     }
 
     fun displaySelectedScreen(itemId: Int) {
-
+        pageNum = itemId
         //creating fragment object
         var fragment: Fragment? = null
 
@@ -47,7 +48,7 @@ class NavBarActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelect
         when (itemId) {
             R.id.nav_account -> fragment = MyAccountFragment()
             R.id.nav_job_search -> fragment = JobListFragment()
-            R.id.nav_my_jobs -> fragment = MyJobsFragment()
+            R.id.nav_my_jobs -> fragment = JobListFragment() //MyJobsFragment()
             R.id.nav_submit_job -> fragment = SubmitJobFragment()
         }
 
@@ -86,7 +87,9 @@ class NavBarActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelect
         var navView = findViewById<NavigationView>(R.id.nav_view)
         var headerView = navView.getHeaderView(0)
         var nameView = headerView.findViewById<TextView>(R.id.user_name_text_view)
+        var balanceView = headerView.findViewById<TextView>(R.id.balance_text_view)
         nameView.text = user.first_name + " " + user.last_name
+        balanceView.text = "Balance: $" + user.balance.toString()
     }
 
     override fun onBackPressed() {

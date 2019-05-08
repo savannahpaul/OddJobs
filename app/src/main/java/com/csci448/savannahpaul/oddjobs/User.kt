@@ -10,5 +10,6 @@ data class User (
     var password: String? = "",
     var email: String? = "",
     var balance: Double? = 0.00,
-    var image: Uri? = Intent().data
+    var image: Uri? = Intent().data,
+    var bio: String? = ""
 )

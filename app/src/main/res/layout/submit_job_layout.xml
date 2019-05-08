@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
@@ -52,6 +55,10 @@
         />
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
     <ImageView
         android:id="@+id/job_image_view"
         android:layout_height="wrap_content"
@@ -60,14 +67,31 @@
         android:maxHeight="100dp"
         android:layout_gravity="center"
         android:visibility="invisible"/>
+    <ImageView
+        android:id="@+id/job_imagetwo_view"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:maxWidth="100dp"
+        android:maxHeight="100dp"
+        android:layout_gravity="center"
+        android:visibility="invisible"/>
+    </LinearLayout>
     <Button
-            android:id="@+id/upload_photo_button"
+            android:id="@+id/upload_photo1_button"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_gravity="center"
-            android:text="@string/upload_photo"
+            android:text="Upload Photo 1"
             android:textSize="24sp"/>
+    <Button
+        android:id="@+id/upload_photo2_button"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:text="Upload Photo 2"
+        android:textSize="24sp"/>
     <Button
             android:id="@+id/add_a_location_button"
             android:layout_width="250dp"
@@ -76,6 +100,12 @@
             android:layout_gravity="center"
             android:text="@string/add_a_location"
             android:textSize="24sp"/>
+    <TextView
+        android:id="@+id/location_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text=""/>
     <Button
             android:id="@+id/submit_button"
             android:layout_width="250dp"
@@ -85,3 +115,4 @@
             android:text="Submit"
             android:textSize="24sp"/>
 </LinearLayout>
+</ScrollView>

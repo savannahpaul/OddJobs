@@ -21,6 +21,7 @@
         </activity>
         <activity android:name=".CreateAccountActivity">
         </activity>
+        <activity android:name=".MyJobViewActivity"></activity>
         <activity android:name=".NavBarActivity">
         </activity>
         <activity android:name=".JobViewActivity"></activity>

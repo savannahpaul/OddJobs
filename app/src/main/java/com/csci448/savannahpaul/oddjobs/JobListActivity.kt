@@ -8,7 +8,7 @@ import android.util.Log
 import android.widget.FrameLayout
 
 class JobListActivity: SingleFragmentActivity(),
-    JobListFragment.Callbacks, JobViewFragment.Callbacks{
+    JobListFragment.Callbacks, MyJobViewFragment.Callbacks, JobViewFragment.Callbacks{
 
     override fun onJobSelected(job: Job, position: Int) {
 

@@ -32,14 +32,19 @@ class JobListFragment: Fragment() {
             view.list_item_job_description_text_view.text = job.description
             var price = "$" + job.price.toString()
             view.list_item_job_price_text_view.text = price
-            view.list_item_job_distance_text_view.text = job.distance.toString()
             view.job_image_view.setImageURI(job.image)
             view.setOnClickListener {
                 //val intent = JobViewActivity.createIntent(fragment.activity, pos)
                 //fragment.startActivityForResult(intent, fragment.targetRequestCode)
                 //fragment.callbacks?.onCrimeSelected(crime, position)
-                val intent = JobViewActivity.createIntent(fragment.activity, job)
-                fragment.startActivity(intent)
+                if(NavBarActivity.pageNum == R.id.nav_job_search){
+                    val intent = JobViewActivity.createIntent(fragment.activity, job)
+                    fragment.startActivity(intent)
+                } else {
+                    val intent = MyJobViewActivity.createIntent(fragment.activity, job)
+                    fragment.startActivity(intent)
+                }
+
             }
         }
     }
@@ -73,8 +78,14 @@ class JobListFragment: Fragment() {
     }
 
     private fun updateUI() {
-        adapter = JobListAdapter(this, JobLab.getJobs())
-        job_list_recycler_view.adapter = adapter
+        if(NavBarActivity.pageNum == R.id.nav_job_search){
+            adapter = JobListAdapter(this, JobLab.getJobs())
+            job_list_recycler_view.adapter = adapter
+        } else {
+            adapter = JobListAdapter(this, JobLab.getMyJobs())
+            job_list_recycler_view.adapter = adapter
+        }
+
     }
 
     override fun onSaveInstanceState(outState: Bundle) {

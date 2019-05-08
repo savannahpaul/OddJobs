@@ -3,7 +3,7 @@
               android:id="@+id/nav_header_layout"
               android:layout_width="match_parent"
               android:layout_height="192dp"
-              android:background="?attr/colorPrimaryDark"
+              android:background="@color/colorLightBG"
               android:padding="16dp"
               android:theme="@style/ThemeOverlay.AppCompat.Dark"
               android:orientation="vertical"
@@ -14,8 +14,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="40dp"
-            android:textColor="@color/colorBlue"
+            android:textColor="@color/colorDarkBlue"
             android:text="placeholder:("
     />
+    <TextView
+        android:id="@+id/balance_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/colorDarkBlue"
+        android:text="Balance: "
+        />
 
 </LinearLayout>

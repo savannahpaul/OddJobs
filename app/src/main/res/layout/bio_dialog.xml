@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/popup_box"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/colorLightBG"
+    android:padding="10dp">
+
+    <EditText
+        android:id="@+id/dialog_bio"
+        android:hint="Enter the location of the job"
+        android:inputType="textPersonName"
+        android:layout_gravity="center"
+        android:background="@color/colorWhite"
+        android:layout_width="225dp"
+        android:layout_height="wrap_content" />
+
+
+</LinearLayout>

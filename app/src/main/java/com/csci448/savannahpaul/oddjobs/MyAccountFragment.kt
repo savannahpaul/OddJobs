@@ -10,18 +10,25 @@ import android.os.Build
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.content.PermissionChecker.checkSelfPermission
+import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import android.view.animation.AnimationUtils
+import android.widget.*
+import kotlinx.android.synthetic.main.activity_single_fragment.*
+import kotlinx.android.synthetic.main.bio_dialog.*
 import kotlinx.android.synthetic.main.user_account_layout.*
 
 class MyAccountFragment : Fragment() {
     companion object {
-        private val IMAGE_PICK_CODE = 1000;
-        private val PERMISSION_CODE = 1001;
+        private val IMAGE_PICK_CODE = 1000
+        private val PERMISSION_CODE = 1001
         private var uploaded = false
+        private var bioAdded = false
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -32,9 +39,14 @@ class MyAccountFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         getActivity()!!.setTitle("My Account")
+        var title = NavBarActivity.user.first_name + "'s Account"
+        account_page_title.text = title
         user_email_text_view.text = NavBarActivity.user.email
         user_username_text_view.text = NavBarActivity.user.username
         user_balance_textview.text = "$ " + NavBarActivity.user.balance.toString()
+        if(bioAdded){
+            bio_text_view.text = NavBarActivity.user.bio
+        }
         if(uploaded){
             profile_image_view.setImageURI(NavBarActivity.user.image)
         }
@@ -58,11 +70,32 @@ class MyAccountFragment : Fragment() {
                 pickImageFromGallery();
             }
         }
+
+        val `in` = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left)
+        view_switcher.inAnimation = `in`
+
+        val out = AnimationUtils.loadAnimation(context, android.R.anim.slide_out_right)
+        view_switcher.outAnimation = out
+
+        update_bio_button?.setOnClickListener {
+            bioAdded = true
+            if(view_switcher.currentView == view.findViewById(R.id.bio_text_view)){
+                //change to edit text
+                view_switcher?.showNext()
+                update_bio_button.text = "+"
+            } else {
+                NavBarActivity.user.bio = bio_edit_text.text.toString()
+                view_switcher?.showPrevious()
+                bio_text_view.text = NavBarActivity.user.bio
+                update_bio_button.text = "[]"
+            }
+        }
+
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
 
     }
 
@@ -98,4 +131,6 @@ class MyAccountFragment : Fragment() {
             uploaded = true
         }
     }
+
+
 }

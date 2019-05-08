@@ -13,7 +13,8 @@ class Job {
     var price: Int = 0
     var distance: Int = 0
     lateinit var image: Uri
-
+    lateinit var imagetwo: Uri
+    var location: String = ""
     init {
         id = UUID.randomUUID()
     }

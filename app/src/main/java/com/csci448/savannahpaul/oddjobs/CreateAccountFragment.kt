@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -52,8 +53,16 @@ class CreateAccountFragment: Fragment() {
                             Log.d(LOG_TAG, "Something went wrong :(")
                         }
                     }
-            val intent = NavBarActivity.createIntent(context, user, R.id.nav_account)
-            startActivity(intent)
+            if(email_exit_text.text.toString() != confirm_email_edit_text.text.toString()){
+                Toast.makeText(context, "Emails don't match!", Toast.LENGTH_LONG).show()
+            }
+            else if (password_edit_text.text.toString() != confirm_password_edit_text.text.toString()){
+                Toast.makeText(context, "Passwords don't match!", Toast.LENGTH_LONG).show()
+            } else {
+                val intent = NavBarActivity.createIntent(context, user, R.id.nav_account)
+                startActivity(intent)
+            }
+
         }
     }
 

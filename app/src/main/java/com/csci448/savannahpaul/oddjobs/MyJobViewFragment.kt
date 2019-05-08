@@ -11,16 +11,16 @@ import android.view.ViewGroup
 import android.widget.Toast
 import kotlinx.android.synthetic.main.job_view_layout.*
 
-class JobViewFragment: Fragment() {
+class MyJobViewFragment: Fragment() {
     interface Callbacks {
         fun onJobUpdated()
     }
     companion object {
-        private val LOG_TAG = "448.JobViewFrag"
+        private val LOG_TAG = "448.MyJobViewFrag"
         private lateinit var job: Job
 
         fun createFragment(j: Job): Fragment {
-            var jobviewFrag = JobViewFragment()
+            var jobviewFrag = MyJobViewFragment()
             job = j
             return jobviewFrag
         }
@@ -37,10 +37,11 @@ class JobViewFragment: Fragment() {
         job_description_text_view.text = job.description
         image_one_view.setImageURI(job.image)
         image_two_view.setImageURI(job.imagetwo)
-        //Button click listeners here
-        request_button.setOnClickListener{
-            //Toast.makeText(context, "Request to poster will be sent", Toast.LENGTH_LONG).show()
-            JobLab.addMyJob(job)
+
+        message_button.setOnClickListener{
+            //messages activity
+            val intent = MessagesActivity.createIntent(context)
+            startActivity(intent)
         }
     }
 
@@ -56,7 +57,7 @@ class JobViewFragment: Fragment() {
             Log.d(LOG_TAG, "savedInstanceState is not null")
 
         }
-        return inflater.inflate(R.layout.job_view_layout, container, false)
+        return inflater.inflate(R.layout.requested_job_view_layout, container, false)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
